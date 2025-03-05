@@ -1,0 +1,11 @@
+Dear Roger,
+
+Thank you for sharing your draft.
+
+I suggest extending the methodology section and ensuring that all borrowed text from the literature is properly cited. Additionally, please include R/R² and RMSE values for both models, as these metrics provide a more comprehensive evaluation. When referring to your model, explicitly name it as a feedforward neural network trained with BR or LM, or simply use FFNN-BR and FFNN-LM.
+
+Furthermore, I recommend expanding the results and discussion section. Currently, the text presents numerical values without fully analyzing their implications. An in-depth discussion would enhance the impact of your findings. 
+
+Best regards,
+
+Reza

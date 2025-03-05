@@ -1,0 +1,137 @@
+\documentclass[10pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\graphicspath{{D:/5th Semester/Legacy_contamination/Exercises (English)/Figures/}}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{cite}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{parskip}
+\usepackage{tikz}
+
+\title{Exercise: Identification of Pollution Concentrations in a Shallow Groundwater Aquifer using Data-Driven Approaches}
+\author{Roger Roca Miró \\ Legacy Contamination and Soil Remediation \\ TU Bergakademie Freiberg}
+\date{\today}
+
+\usepackage{titling}
+\setlength{\droptitle}{-60pt}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section{Introduction}
+	Groundwater contamination is a critical issue with significant environmental and public health implications. Accurate prediction of pollutant concentrations is essential for effective remediation and risk management. In this report, we apply the methodology of Taherdangkoo et al. \cite{taherdangkoo2020} by adapting advanced neural network training algorithms—Levenberg-Marquardt (LM) and Bayesian Regularization (BR)—to a simplified 2D contamination model. Our approach simulates contaminant migration in a shallow groundwater aquifer and compares the performance of both algorithms while evaluating the influence of key hydrogeological parameters. This exercise demonstrates the potential of data-driven methods for assessing groundwater contamination and highlights the value of simplified models in environmental risk assessment.
+	
+	\section{Methodology}
+	\subsection{Conceptual Model and Boundary Conditions}
+	The 2D generic contamination model domain spans 150 m in length and 100 m in width, and is set to be located at a depth of 30 m (depth being just relevant to make clear that it represents a shallow aquifer). Two leakage sources are positioned along the left boundary, while an observation well is placed on the right side of the domain. The key input parameters for the simplified model are permeability, \textit{porosity}, and \textit{layer length}, while the output is the contaminant concentration.
+	
+	Groundwater flows from left to right under single-phase flow conditions, with the contaminant treated as a conservative tracer (i.e., sorption and degradation processes are neglected). Pressure head boundaries are applied laterally, and no-flow conditions are enforced at the top and bottom boundaries. All strata are assumed to be homogeneous and isotropic.
+	The contaminant is allowed to leak into the aquifer over a simulation period of 150 hours.
+	
+	\textit{Figure \ref{fig:contamination_model}} presents a detailed diagram of the proposed model.
+	
+	\begin{figure}[h]
+		\centering
+		\begin{tikzpicture}
+			
+			% Draw the rectangular domain
+			\fill[gray!50] (0,0) rectangle (15,10);
+			
+			% Draw the vertical partitions
+			\draw (5,0) -- (5,10);
+			\draw (10,0) -- (10,10);
+			
+			% Draw sources and observation well
+			\fill (2.5,3) circle (0.15);  % Source 1
+			\fill (2.5,7) circle (0.15);  % Source 2
+			\fill (12.5,5) circle (0.15); % Observation well
+			
+			% Add labels ABOVE the dots with some vertical separation
+			\node[above=5pt, red] at (2.5,3) {\textbf{Source 1}};
+			\node[above=5pt, red] at (2.5,7) {\textbf{Source 2}};
+			\node[above=5pt, green] at (12.5,5) {\textbf{Observation well}};
+			
+			% Axes and dimensions
+			\draw[thick, ->] (-0.5,0) -- (-0.5,10);
+			\draw[thick, ->] (0,-0.5) -- (15,-0.5);
+			
+			% Rotated label for width
+			\node[rotate=90] at (-1.2,5) {\textbf{Width = 100 m}};
+			
+			% Label for length
+			\node at (7.5,-1) {\textbf{Length = 150 m}};
+			
+		\end{tikzpicture}
+		\caption{\textit{2D generic contamination model to investigate flow and transport of contaminant plumes in a shallow aquifer. Modified in \LaTeX{} from the WS 2023 Prof. Taherdangkoo slides.}}
+		\label{fig:contamination_model}
+	\end{figure}
+	
+	\subsection{Neural Network Structures and Training Algorithms}
+	A feedforward neural network with one hidden layer is employed to predict pollutant concentrations. The study investigates networks with the number of hidden neurons varying from 1 to 40. Key aspects of the network setup include:
+	\begin{itemize}
+		\item \textbf{Data Normalization and Division:} Input and target data are normalized to the range \([-1, 1]\) with the \textit{mapminmax} function, since the used training algorithms perform better with data centered at zero \cite{guzman2017,taherdangkoo2020}. This process ensures all features contribute equally during network training and the normalization parameters (the original minimum and maximum values) are stored for later use in reversing the transformation on the network's predictions.
+		The dataset is split into training (70\%), validation (15\%), and testing (15\%) sets.
+		\item \textbf{Network Architecture:} The hidden layer uses a hyperbolic tangent sigmoid (\textit{tansig}) transfer function (chosen over the default \textit{logsig} because of the \([-1, 1]\) range of the data after the normalization), while the output layer uses a linear (\textit{purelin}) function.
+		\item \textbf{Training Algorithms:} 
+		\begin{enumerate}
+			\item \textbf{Levenberg-Marquardt (LM):} The LM algorithm is used with the network configured to use a validation set to avoid overfitting. This algorithm is favored for its fast convergence and efficiency \cite{taherdangkoo2020}.
+			\item \textbf{Bayesian Regularization (BR):} The BR algorithm is applied combining the training and validation sets to enhance generalization. This is particularly advantageous when working with small datasets like ours, because BR minimizes the need for a separate validation phase and enhances the model’s generalization ability \cite{taherdangkoo2020}.
+		\end{enumerate}
+		
+		
+		\item \textbf{Performance Metrics:} The networks are evaluated using the mean squared error (MSE) computed on training, validation, and testing datasets. Regression plots are generated to assess prediction accuracy, and a parameter importance analysis is conducted to determine the influence of input parameters (\textit{permeability}, \textit{porosity}, and \textit{layer length}) on model performance. 
+		
+		The idea behind the parameter performance analysis is to measure how much each input contributes to the network’s performance. In the code, this is done by excluding one input at a time and then retraining the best selected network without that parameter. For each exclusion, the mean squared error (MSE) is computed on both the training and testing sets. These errors capture how much the network's performance degrades when that parameter is missing, they are averaged for all the parameters (each divided by the sum of all average impacts) to yield a relative importance metric (adding up to 1).
+	\end{itemize}
+	
+	\section{Results and Discussion}
+	Both Levenberg-Marquardt (LM) and Bayesian Regularization (BR) algorithms demonstrated strong predictive capabilities, with the LM network achieving its best performance using 8 neurons (Training MSE: 3.293448e+04, Validation MSE: 4.731353e+04, Testing MSE: 7.251373e+04) and the BR network performing optimally with 27 neurons (Training MSE: 1.355082e+04, Testing MSE: 3.161464e+04), turning up to be the superior algorithm.
+	\textit{Figure~\ref{fig:comparison}} presents the performance comparison between the LM and BR algorithms in terms of MSE versus the number of neurons. The LM network shows separate curves for training, validation, and testing, with its best performance selected based on the validation error. In contrast, the BR network demonstrates a more robust performance without the advantage of avoiding the validation split.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.05\textwidth]{algorithm_comparison.png}
+		\caption{\textit{Algorithm Performance Comparison: MSE vs. number of neurons for LM (training, validation, and testing) and BR (training and testing). Circular markers indicate the best performing networks for each algorithm.}}
+		\label{fig:comparison}
+	\end{figure}
+	The regression analyses for the LM and BR networks are illustrated in \textit{Figure~\ref{fig:lm_reg}} and \textit{Figure~\ref{fig:br_reg}}, respectively. For the LM network (\textit{Figure~\ref{fig:lm_reg}}), scatter plots of true versus predicted values for training, validation, and testing datasets indicate a strong correlation along the 45-degree line. Similarly, the BR network (\textit{Figure~\ref{fig:br_reg}}) shows a better agreement between predicted and true pollutant concentrations, confirming the better suitability for this application.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\textwidth]{lm_regression.png}
+		\caption{\textit{LM Network Regression Analysis: Scatter plots for (a) training, (b) validation, and (c) testing datasets with corresponding MSE values.}}
+		\label{fig:lm_reg}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{br_regression.png}
+		\caption{\textit{BR Network Regression Analysis: Scatter plots for (a) training (combined with validation) and (b) testing datasets with corresponding MSE values.}}
+		\label{fig:br_reg}
+	\end{figure}
+	For the parameter importance analysis the bar chart in \textit{Figure~\ref{fig:param_imp}} reveals the greater contribution of \textit{porosity} (0.510), over \textit{permeability} (0.207), and \textit{layer length} (0.283).
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\textwidth]{parameter_importance_analysis.png}
+		\caption{\textit{Parameter Importance Analysis: Normalized importance of input parameters obtained by evaluating the impact of each parameter's exclusion on network performance.}}
+		\label{fig:param_imp}
+	\end{figure}
+	Overall, the results demonstrate that the BR algorithm is more effective in predicting pollutant concentrations, and confirm \textit{porosity} as the most impactful parameter.
+	
+	\section{Conclusion}
+	This study has demonstrated the application of data-driven neural network approaches for the identification of pollution concentrations in a shallow groundwater aquifer. A 2D generic contamination model was used to simulate contaminant transport under realistic boundary conditions. Neural networks with varying numbers of hidden neurons were trained using both Levenberg-Marquardt and Bayesian Regularization algorithms. 
+	
+	Both LM and BR networks provided accurate predictions, with the results making clear that the BR is the superior algorithm for the application. The LM network’s performance was optimized by monitoring validation MSE, while the BR network benefited from an automatic regularization mechanism. Parameter importance analysis highlighted that the \textit{porosity} is the main driver of pollution spread, while \textit{permeability} and \textit{layer length} can't be ignored.
+	
+	% References
+	\bibliographystyle{apalike}
+	
+	\begin{thebibliography}{99} % 99 is the widest label (adjust as needed)
+		\bibitem{guzman2017}
+		Guzman, Sandra M.; Paz, Joel O.; Tagert, Mary Love M. (2017): The Use of NARX Neural Networks to Forecast Daily Groundwater Levels. In Water Resour Manage 31 (5), pp. 1591–1603. DOI: 10.1007/s11269-017-1598-5.
+		\bibitem{taherdangkoo2020}
+		Taherdangkoo, R., Tatomir, A., Taherdangkoo, M., Qiu, P., \& Sauter, M. (2020). Nonlinear autoregressive neural networks to predict hydraulic fracturing fluid leakage into shallow groundwater. Water, 12(3), 841. https://doi.org/10.3390/w12030841
+	\end{thebibliography}
+	
+\end{document}

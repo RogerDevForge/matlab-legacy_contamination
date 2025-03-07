@@ -1,0 +1,14 @@
+Best Results:
+Levenberg-Marquardt (with normalized data):
+  Best neurons: 30
+  Training MSE: 8.771792e+03
+  Validation MSE: 4.424284e+04
+  Testing MSE: 1.040051e+05
+
+Bayesian Regularization (with normalized data):
+  Best neurons: 13
+  Training MSE: 2.446765e+04
+  Validation MSE: 4.234568e+04
+  Testing MSE: 4.572474e+04
+
+Bayesian Regularization performed better with 13 neurons.

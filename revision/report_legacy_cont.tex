@@ -1,7 +1,7 @@
 \documentclass[10pt]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
-\graphicspath{{D:/5th Semester/Legacy_contamination/Exercises (English)/Figures/}}
+\graphicspath{{D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/revision/figures}}
 \usepackage{subcaption}
 \usepackage{amsmath}
 \usepackage{float}
@@ -10,6 +10,7 @@
 \usepackage{booktabs}
 \usepackage{parskip}
 \usepackage{tikz}
+\usepackage{epstopdf}
 
 \title{Exercise: Identification of Pollution Concentrations in a Shallow Groundwater Aquifer using Data-Driven Approaches}
 \author{Roger Roca Miró \\ Legacy Contamination and Soil Remediation \\ TU Bergakademie Freiberg}
@@ -23,9 +24,9 @@
 	\maketitle
 	
 	\section{Introduction}
-	Groundwater contamination is a critical issue with significant environmental and public health implications. Accurate prediction of pollutant concentrations is essential for effective remediation and risk management. In this report, we apply the methodology of Taherdangkoo et al. \cite{taherdangkoo2020} by adapting advanced neural network training algorithms—Levenberg–Marquardt (LM) and Bayesian Regularization (BR).
+	Groundwater contamination is a critical issue with significant environmental and public health implications. Accurate prediction of pollutant concentrations is essential for effective remediation and risk management. In this report, we apply the methodology of Taherdangkoo et al. \cite{taherdangkoo2020} by adapting feedforward neural network (FFNN) training algorithms—Levenberg–Marquardt (LM) and Bayesian Regularization (BR).
 
-	The Levenberg–Marquardt algorithm, introduced by Hagan and Menhaj (1994), is recognized for its computational efficiency and rapid convergence when training feedforward neural networks. MATLAB implements this algorithm in the \texttt{trainlm} function, which has become one of the most widely used tools for training neural networks due to its reliability and speed \cite{hagan1994,matlab}.
+	The LM algorithm, introduced by Hagan and Menhaj (1994), is recognized for its computational efficiency and rapid convergence when training FFNN. MATLAB implements this algorithm in the \texttt{trainlm} function, which has become one of the most widely used tools for training neural networks due to its reliability and speed \cite{hagan1994,matlab}.
 
 	The Bayesian Regularization algorithm, detailed by Foresee and Hagan (1997) \cite{foresee1997,matlab}, enhances model generalization through a Bayesian probabilistic framework. Its implementation in MATLAB as the \texttt{trainbr} function integrates the training and validation phases, providing an optimal solution for limited datasets common in groundwater contamination scenarios. This method reduces the risk of overfitting by automatically adjusting regularization parameters during training, effectively improving predictive accuracy and robustness.
 
@@ -76,58 +77,101 @@
 	
 	\subsection{Neural Network Structures and Training Algorithms}
 	
-	A feedforward neural network with one hidden layer is employed to predict pollutant concentrations in shallow aquifers. Similar neural network structures have been applied in recent groundwater contamination studies by Sandra M. Guzman et. al. (2017) \cite{guzman2017}. and Taherdangkoo et. al. (2020) \cite{taherdangkoo2020}.
+	A FFNN with one hidden layer is employed to predict pollutant concentrations in shallow aquifers. Similar neural network structures have been applied in recent groundwater contamination studies by Sandra M. Guzman et. al. (2017) \cite{guzman2017}. and Taherdangkoo et. al. (2020) \cite{taherdangkoo2020}. 
 	
-	\begin{itemize}
-		\item \textit{Data Normalization:} Input and target data are normalized to the range  using the \textit{mapminmax} function, since training algorithms typically perform better with data centered at zero \cite{guzman2017,taherdangkoo2020}.
+	\newpage
+	
+		\underline{\textit{Data Normalization and Division}} \\
+		\\
+		Input and target data are normalized to the range  using the \textit{mapminmax} function, since training algorithms typically perform better with data centered at zero \cite{guzman2017,taherdangkoo2020}. The dataset is split into training (70\%), validation (15\%), and testing (15\%).
 		
-		\item \textit{Network Architecture:} The hidden layer uses a hyperbolic tangent sigmoid (\textit{tansig}) \cite{matlab-tansig} transfer function, chosen over the default \textit{logsig} \cite{matlab-logsig} due to the normalized data range of \([-1, 1]\). The output layer applies a linear transfer function to facilitate continuous-value prediction.
+		\underline{\textit{Network Architecture}} \\
+		\\
+		The hidden layer uses a hyperbolic tangent sigmoid (\textit{tansig}) \cite{matlab-tansig} transfer function, chosen over the default \textit{logsig} \cite{matlab-logsig} due to the normalized data range of \([-1, 1]\). The output layer applies a linear transfer function to facilitate continuous-value prediction.
 		
-		\item \textit{Training Algorithms:} As explained earlier, the two algorithms used are the LM and the BR. LM algorithm is favored in the field, for fast convergence and efficiency, particularly in scenarios requiring rapid training and reliable predictions \cite{taherdangkoo2020}.
+		\underline{\textit{Training Algorithms}} \\
+		\\
+		As explained earlier, the two algorithms used are the LM and the BR. LM algorithm is favored in the field, for fast convergence and efficiency, particularly in scenarios requiring rapid training and reliable predictions \cite{taherdangkoo2020}.
 		
-		And regarding BR, which often integrates training and validation sets, enhancing generalization \cite{guzman2017,taherdangkoo2020,foresee1997}, we still separated the validation set. The reason was to ensure that both algorithms were evaluated under the same conditions. The validation partition is effectively inert for stopping in the BR case, but it still allows us to compute an even validation error metric for both algorithms.
+		Regarding the FFNN-BR, which often integrates training and validation sets, enhancing generalization \cite{guzman2017,taherdangkoo2020,foresee1997}, we still separated the validation set. The reason was to ensure that both algorithms were evaluated under the same conditions. The validation partition is effectively inert for stopping in the BR case, but it still allows us to compute an even validation error metric for both algorithms.
 		
-		\item \textit{Performance Evaluation:} Model performance is assessed via performance metrics. The MSE, RMSE and $R^{2}$ are computed separately on the training, validation and test sets, per every number of neurons defining every model. The model yielding the lowest validation MSE is identified as the best model for each algorithm.
+		\newpage
 		
-		\item \textit{Parameter Importance Analysis:} To quantify how input variables (\textit{permeability}, \textit{porosity}, and \textit{layer length}) influence prediction accuracy, the method Leave-One-Variable-Out (LOVO) is employed in a simplified way, from Olden et. al. (2004) \cite{olden2004}. The degradation in network performance upon omission of each input parameter is quantified, yielding a relative importance metric.
 		
-	\end{itemize}
+		\underline{\textit{Performance Evaluation}} \\
+		\\
+		Model performance is assessed via performance metrics. The MSE, RMSE and $R^{2}$ are computed separately on the training, validation and test sets, per every number of neurons defining every model. The model yielding the lowest validation MSE is identified as the best model for each algorithm.
+		
+		\underline{\textit{Parameter Importance Analysis}} \\
+		\\
+		The Leave-One-Variable-Out (LOVO) method is executed in the code by systematically removing each input variable (\textit{permeability}, \textit{porosity}, and \textit{layer length}) and retraining the best FFNN (previously selected depending on the validation MSE, as explained earlier) without that specific parameter. The performance degradation is quantified by computing the mean squared error (MSE) for training and testing datasets. The impact of each parameter is measured by averaging these MSE differences and normalizing them to derive a relative importance metric. Finally, a bar chart is generated to visualize the normalized contribution of each parameter, aiding in the interpretation of their influence on the model's predictions. Validation MSE is not included in this step, as it is primarily used for model selection rather than importance quantification. Including it could introduce bias, since the validation set is already involved in tuning the best FFNN, potentially leading to an overestimation or underestimation of parameter importance due to prior model adjustments. Instead, focusing on training and testing MSE ensures that parameter influence is assessed based on both model fit and generalization performance.
 	
 	\section{Results and Discussion}
-	Both Levenberg-Marquardt (LM) and Bayesian Regularization (BR) algorithms demonstrated strong predictive capabilities, with the LM network achieving its best performance using 8 neurons (Training MSE: 3.293448e+04, Validation MSE: 4.731353e+04, Testing MSE: 7.251373e+04) and the BR network performing optimally with 27 neurons (Training MSE: 1.355082e+04, Testing MSE: 3.161464e+04), turning up to be the superior algorithm.
-	\textit{Figure~\ref{fig:comparison}} presents the performance comparison between the LM and BR algorithms in terms of MSE versus the number of neurons. The LM network shows separate curves for training, validation, and testing, with its best performance selected based on the validation error. In contrast, the BR network demonstrates a more robust performance without the advantage of avoiding the validation split.
+	
+	Both the Levenberg-Marquardt (LM) and Bayesian Regularization (BR) algorithms demonstrated strong predictive capabilities when trained on normalized data. The LM network achieved its best performance using 30 neurons (Training MSE: \(8.77 \times 10^3\), Validation MSE: \(4.42 \times 10^4\), Testing MSE: \(1.04 \times 10^5\)), while the BR network performed optimally with 13 neurons (Training MSE: \(2.45 \times 10^4\), Validation MSE: \(4.23 \times 10^4\), Testing MSE: \(4.57 \times 10^4\)). These results indicate that the BR network generally outperformed the LM network, particularly in terms of validation and testing errors.
+	
+	To provide a more comprehensive assessment of predictive performance, additional evaluation metrics, including Root Mean Squared Error (RMSE) and the coefficient of determination ($R^2$), were computed.
+	
+	\textit{Figure \ref{fig:comparisonMSE}} presents the performance comparison between the FFNN-LM and FFNN-BR algorithms in terms of MSE as a function of the number of neurons. The results indicate that while LM achieves lower training error, the BR network exhibits superior generalization capabilities.
+	
+	\textit{Figure \ref{fig:comparisonRMSE}} and \textit{Figure \ref{fig:comparisonR2}} illustrate similar trends for RMSE and $R^2$ metrics. The RMSE comparison reveals that the BR network maintains lower error values across all tested neuron configurations. Likewise, \textit{Figure \ref{fig:comparisonR2}} confirms that the BR network achieves higher $R^2$ values, signifying a stronger correlation between predicted and actual pollutant concentrations.
+	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=1.05\textwidth]{algorithm_comparison.png}
-		\caption{\textit{Algorithm Performance Comparison: MSE vs. number of neurons for LM (training, validation, and testing) and BR (training and testing). Circular markers indicate the best performing networks for each algorithm.}}
-		\label{fig:comparison}
+		\includegraphics[width=1.05\textwidth]{MSE\_neurons.eps}
+		\caption{\textit{Algorithm Performance Comparison: MSE vs. number of neurons for the FFNN-LM and FFNN-BR. Circular markers indicate the best-performing networks for each algorithm.}}
+		\label{fig:comparisonMSE}
 	\end{figure}
-	The regression analyses for the LM and BR networks are illustrated in \textit{Figure~\ref{fig:lm_reg}} and \textit{Figure~\ref{fig:br_reg}}, respectively. For the LM network (\textit{Figure~\ref{fig:lm_reg}}), scatter plots of true versus predicted values for training, validation, and testing datasets indicate a strong correlation along the 45-degree line. Similarly, the BR network (\textit{Figure~\ref{fig:br_reg}}) shows a better agreement between predicted and true pollutant concentrations, confirming the better suitability for this application.
+	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=1\textwidth]{lm_regression.png}
+		\includegraphics[width=1.05\textwidth]{RMSE\_neurons.eps}
+		\caption{\textit{Algorithm Performance Comparison: RMSE vs. number of neurons for the FFNN-LM and FFNN-BR. Circular markers indicate the best-performing networks for each algorithm.}}
+		\label{fig:comparisonRMSE}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.05\textwidth]{R-2\_neurons.eps}
+		\caption{\textit{Algorithm Performance Comparison: \(R^2\) vs. number of neurons for the FFNN-LM and FFNN-BR. Circular markers indicate the best-performing networks for each algorithm.}}
+		\label{fig:comparisonR2}
+	\end{figure}
+	
+	The regression analyses for the FFNN-LM and FFNN-BR , depicted in \textit{Figure \ref{fig:lm_sct}} and \textit{Figure \ref{fig:br_sct}}, respectively, provide further insights into model performance. For the FFNN-LM (\textit{Figure \ref{fig:lm_sct}}), scatter plots of true versus predicted values indicate a strong correlation along the 45-degree line, though larger discrepancies appear in the validation and testing datasets. Similarly, \textit{Figure \ref{fig:br_sct}} shows that the BR network exhibits better agreement between predicted and actual pollutant concentrations, confirming its superior predictive accuracy.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\textwidth]{LM\_scatterplots.eps}
 		\caption{\textit{LM Network Regression Analysis: Scatter plots for (a) training, (b) validation, and (c) testing datasets with corresponding MSE values.}}
-		\label{fig:lm_reg}
+		\label{fig:lm_sct}
 	\end{figure}
+	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.8\textwidth]{br_regression.png}
-		\caption{\textit{BR Network Regression Analysis: Scatter plots for (a) training (combined with validation) and (b) testing datasets with corresponding MSE values.}}
-		\label{fig:br_reg}
+		\includegraphics[width=1\textwidth]{BR\_scatterplots.eps}
+		\caption{\textit{BR Network Regression Analysis: Scatter plots for (a) training, (b) validation, and (c) testing datasets with corresponding MSE values.}}
+		\label{fig:br_sct}
 	\end{figure}
-	For the parameter importance analysis the bar chart in \textit{Figure~\ref{fig:param_imp}} reveals the greater contribution of \textit{porosity} (0.510), over \textit{permeability} (0.207), and \textit{layer length} (0.283).
+	
+	To assess parameter importance, a sensitivity analysis was conducted. The bar chart in \textit{Figure \ref{fig:param_imp}} reveals that \textit{porosity} is the most influential parameter (normalized importance: 0.543), followed by \textit{layer length} (0.281) and \textit{permeability} (0.176). These findings underscore the dominant role of \textit{porosity} in determining pollutant dispersion, while \textit{permeability} and \textit{layer length} remain significant secondary contributors.
+	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.6\textwidth]{parameter_importance_analysis.png}
+		\includegraphics[width=0.6\textwidth]{parameter\_importance.eps}
 		\caption{\textit{Parameter Importance Analysis: Normalized importance of input parameters obtained by evaluating the impact of each parameter's exclusion on network performance.}}
 		\label{fig:param_imp}
 	\end{figure}
-	Overall, the results demonstrate that the BR algorithm is more effective in predicting pollutant concentrations, and confirm \textit{porosity} as the most impactful parameter.
+	
+	Overall, the results confirm that the FFNN-BR is more effective in predicting pollutant concentrations with less complexity in its model. Additionally, parameter importance analysis highlights that \textit{porosity} is the primary driver of pollution spread, with \textit{permeability} and \textit{layer length} contributing to a lesser extent.
 	
 	\section{Conclusion}
-	This study has demonstrated the application of data-driven neural network approaches for the identification of pollution concentrations in a shallow groundwater aquifer. A 2D generic contamination model was used to simulate contaminant transport under realistic boundary conditions. Neural networks with varying numbers of hidden neurons were trained using both Levenberg-Marquardt and Bayesian Regularization algorithms. 
+	This study has demonstrated the application of data-driven neural network approaches for the prediction of pollution concentrations in a shallow groundwater aquifer. A two-dimensional contamination model was employed to simulate pollutant transport under realistic boundary conditions. Neural networks with varying numbers of hidden neurons were trained using both Levenberg-Marquardt and Bayesian Regularization algorithms.
 	
-	Both LM and BR networks provided accurate predictions, with the results making clear that the BR is the superior algorithm for the application. The LM network’s performance was optimized by monitoring validation MSE, while the BR network benefited from an automatic regularization mechanism. Parameter importance analysis highlighted that the \textit{porosity} is the main driver of pollution spread, while \textit{permeability} and \textit{layer length} can't be ignored.
+	Both LM and BR networks provided accurate predictions, though the results clearly indicate that the BR algorithm is the superior choice for this application. The LM network’s performance was optimized by monitoring validation MSE, whereas the BR network benefited from an automatic regularization mechanism, enhancing its generalization ability.
+	
+	The parameter importance analysis confirmed that \textit{porosity} is the most significant predictor of pollution spread, while \textit{permeability} and \textit{layer length} also play important roles. These findings provide valuable insights into groundwater contamination modelling and suggest that BR-based  feedforward neural networks are well-suited for predictive environmental analysis.
+	
+	
 	
 	% References
 	\bibliographystyle{apalike}

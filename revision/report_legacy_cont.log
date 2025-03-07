@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.20)  7 MAR 2025 01:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.20)  7 MAR 2025 20:25
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **./report_legacy_cont.tex
 (report_legacy_cont.tex
@@ -539,6 +539,42 @@ File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 z/libraries\tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )))
+(C:\Users\Roger\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf.s
+ty
+Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
+
+(C:\Users\Roger\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (C:\Users\Roger\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+(C:\Users\Roger\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+(C:\Users\Roger\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(C:\Users\Roger\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+
+(C:\Users\Roger\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+)))
 (C:\Users\Roger\AppData\Local\Programs\MiKTeX\tex/latex/titling\titling.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmarkwidth=\skip52
@@ -553,20 +589,20 @@ File: l3backend-pdftex.def 2022-09-28 L3 backend support: PDF output (pdfTeX)
 ) (report_legacy_cont.aux)
 \openout1 = `report_legacy_cont.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -618,16 +654,6 @@ ii
 \makeMPintoPDFobject=\count311
 \everyMPtoPDFconversion=\toks38
 )
-(C:\Users\Roger\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
-ase.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
-
-(C:\Users\Roger\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
-fg
-File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
-))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -638,80 +664,284 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [1
 
 {C:/Users/Roger/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-<D:/5th Semester/Legacy_contamination/Exercises (English)/Figures//algorithm_co
-mparison.png, id=16, 752.8125pt x 470.50781pt>
-File: D:/5th Semester/Legacy_contamination/Exercises (English)/Figures//algorit
-hm_comparison.png Graphic file (type png)
-<use D:/5th Semester/Legacy_contamination/Exercises (English)/Figures//algorith
-m_comparison.png>
-Package pdftex.def Info: D:/5th Semester/Legacy_contamination/Exercises (Englis
-h)/Figures//algorithm_comparison.png  used on input line 102.
-(pdftex.def)             Requested size: 493.2442pt x 308.28897pt.
+Underfull \hbox (badness 10000) in paragraph at lines 84--87
 
-Overfull \hbox (23.48918pt too wide) in paragraph at lines 102--103
- [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--91
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--95
+
  []
 
 [2]
-<D:/5th Semester/Legacy_contamination/Exercises (English)/Figures//lm_regressio
-n.png, id=23, 1023.825pt x 486.31688pt>
-File: D:/5th Semester/Legacy_contamination/Exercises (English)/Figures//lm_regr
-ession.png Graphic file (type png)
-<use D:/5th Semester/Legacy_contamination/Exercises (English)/Figures//lm_regre
-ssion.png>
-Package pdftex.def Info: D:/5th Semester/Legacy_contamination/Exercises (Englis
-h)/Figures//lm_regression.png  used on input line 109.
-(pdftex.def)             Requested size: 469.75502pt x 223.12967pt.
-<D:/5th Semester/Legacy_contamination/Exercises (English)/Figures//br_regressio
-n.png, id=24, 1023.825pt x 486.31688pt>
-File: D:/5th Semester/Legacy_contamination/Exercises (English)/Figures//br_regr
-ession.png Graphic file (type png)
-<use D:/5th Semester/Legacy_contamination/Exercises (English)/Figures//br_regre
-ssion.png>
-Package pdftex.def Info: D:/5th Semester/Legacy_contamination/Exercises (Englis
-h)/Figures//br_regression.png  used on input line 115.
-(pdftex.def)             Requested size: 375.80544pt x 178.50224pt.
- [3 <D:/5th Semester/Legacy_contamination/Exercises (English)/Figures//algorith
-m_comparison.png (PNG copy)>]
-<D:/5th Semester/Legacy_contamination/Exercises (English)/Figures//parameter_im
-portance_analysis.png, id=28, 593.21625pt x 486.31688pt>
-File: D:/5th Semester/Legacy_contamination/Exercises (English)/Figures//paramet
-er_importance_analysis.png Graphic file (type png)
-<use D:/5th Semester/Legacy_contamination/Exercises (English)/Figures//paramete
-r_importance_analysis.png>
-Package pdftex.def Info: D:/5th Semester/Legacy_contamination/Exercises (Englis
-h)/Figures//parameter_importance_analysis.png  used on input line 122.
-(pdftex.def)             Requested size: 281.85587pt x 231.0697pt.
- [4 <D:/5th Semester/Legacy_contamination/Exercises (English)/Figures//lm_regre
-ssion.png (PNG copy)> <D:/5th Semester/Legacy_contamination/Exercises (English)
-/Figures//br_regression.png (PNG copy)>]
-[5 <D:/5th Semester/Legacy_contamination/Exercises (English)/Figures//parameter
-_importance_analysis.png (PNG copy)>] [6] (report_legacy_cont.aux) ) 
+Underfull \hbox (badness 10000) in paragraph at lines 101--104
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 105--108
+
+ []
+
+Package epstopdf Info: Source file: <D:/5th_Semester/Legacy_contamination/Exerc
+ises_(English)/final_submission/revision/figures/MSE_neurons.eps>
+(epstopdf)                    date: 2025-03-07 15:11:34
+(epstopdf)                    size: 28822 bytes
+(epstopdf)             Output file: <D:/5th_Semester/Legacy_contamination/Exerc
+ises_(English)/final_submission/revision/figures/MSE_neurons-eps-converted-to.p
+df>
+(epstopdf)                    date: 2025-03-07 15:31:02
+(epstopdf)                    size: 15195 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=D:/5th_
+Semester/Legacy_contamination/Exercises_(English)/final_submission/revision/fig
+ures/MSE_neurons-eps-converted-to.pdf D:/5th_Semester/Legacy_contamination/Exer
+cises_(English)/final_submission/revision/figures/MSE_neurons.eps>
+(epstopdf)             \includegraphics on input line 121.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file D:/5th_Semester/Legacy_contamination/Exercis
+es_(English)/final_submission/revision/figures/MSE_neurons-eps-converted-to.pdf
+): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/revi
+sion/figures/MSE_neurons-eps-converted-to.pdf, id=21, 622.325pt x 416.55624pt>
+File: D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission
+/revision/figures/MSE_neurons-eps-converted-to.pdf Graphic file (type pdf)
+<use D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/
+revision/figures/MSE_neurons-eps-converted-to.pdf>
+Package pdftex.def Info: D:/5th_Semester/Legacy_contamination/Exercises_(Englis
+h)/final_submission/revision/figures/MSE_neurons-eps-converted-to.pdf  used on 
+input line 121.
+(pdftex.def)             Requested size: 493.2442pt x 330.15636pt.
+
+Overfull \hbox (23.48918pt too wide) in paragraph at lines 121--122
+ [][] 
+ []
+
+[3]
+Package epstopdf Info: Source file: <D:/5th_Semester/Legacy_contamination/Exerc
+ises_(English)/final_submission/revision/figures/RMSE_neurons.eps>
+(epstopdf)                    date: 2025-03-07 15:12:51
+(epstopdf)                    size: 27905 bytes
+(epstopdf)             Output file: <D:/5th_Semester/Legacy_contamination/Exerc
+ises_(English)/final_submission/revision/figures/RMSE_neurons-eps-converted-to.
+pdf>
+(epstopdf)                    date: 2025-03-07 19:18:23
+(epstopdf)                    size: 14839 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=D:/5th_
+Semester/Legacy_contamination/Exercises_(English)/final_submission/revision/fig
+ures/RMSE_neurons-eps-converted-to.pdf D:/5th_Semester/Legacy_contamination/Exe
+rcises_(English)/final_submission/revision/figures/RMSE_neurons.eps>
+(epstopdf)             \includegraphics on input line 128.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file D:/5th_Semester/Legacy_contamination/Exercis
+es_(English)/final_submission/revision/figures/RMSE_neurons-eps-converted-to.pd
+f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/revi
+sion/figures/RMSE_neurons-eps-converted-to.pdf, id=26, 622.325pt x 416.55624pt>
+
+File: D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission
+/revision/figures/RMSE_neurons-eps-converted-to.pdf Graphic file (type pdf)
+<use D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/
+revision/figures/RMSE_neurons-eps-converted-to.pdf>
+Package pdftex.def Info: D:/5th_Semester/Legacy_contamination/Exercises_(Englis
+h)/final_submission/revision/figures/RMSE_neurons-eps-converted-to.pdf  used on
+ input line 128.
+(pdftex.def)             Requested size: 493.2442pt x 330.15636pt.
+
+Overfull \hbox (23.48918pt too wide) in paragraph at lines 128--129
+ [][] 
+ []
+
+[4 <D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/r
+evision/figures/MSE_neurons-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <D:/5th_Semester/Legacy_contamination/Exerc
+ises_(English)/final_submission/revision/figures/R-2_neurons.eps>
+(epstopdf)                    date: 2025-03-07 15:12:30
+(epstopdf)                    size: 26411 bytes
+(epstopdf)             Output file: <D:/5th_Semester/Legacy_contamination/Exerc
+ises_(English)/final_submission/revision/figures/R-2_neurons-eps-converted-to.p
+df>
+(epstopdf)                    date: 2025-03-07 19:18:24
+(epstopdf)                    size: 14079 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=D:/5th_
+Semester/Legacy_contamination/Exercises_(English)/final_submission/revision/fig
+ures/R-2_neurons-eps-converted-to.pdf D:/5th_Semester/Legacy_contamination/Exer
+cises_(English)/final_submission/revision/figures/R-2_neurons.eps>
+(epstopdf)             \includegraphics on input line 135.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file D:/5th_Semester/Legacy_contamination/Exercis
+es_(English)/final_submission/revision/figures/R-2_neurons-eps-converted-to.pdf
+): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/revi
+sion/figures/R-2_neurons-eps-converted-to.pdf, id=38, 625.33624pt x 414.54875pt
+>
+File: D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission
+/revision/figures/R-2_neurons-eps-converted-to.pdf Graphic file (type pdf)
+<use D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/
+revision/figures/R-2_neurons-eps-converted-to.pdf>
+Package pdftex.def Info: D:/5th_Semester/Legacy_contamination/Exercises_(Englis
+h)/final_submission/revision/figures/R-2_neurons-eps-converted-to.pdf  used on 
+input line 135.
+(pdftex.def)             Requested size: 493.2442pt x 326.9902pt.
+
+Overfull \hbox (23.48918pt too wide) in paragraph at lines 135--136
+ [][] 
+ []
+
+[5 <D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/r
+evision/figures/RMSE_neurons-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <D:/5th_Semester/Legacy_contamination/Exerc
+ises_(English)/final_submission/revision/figures/LM_scatterplots.eps>
+(epstopdf)                    date: 2025-03-07 15:11:09
+(epstopdf)                    size: 96522 bytes
+(epstopdf)             Output file: <D:/5th_Semester/Legacy_contamination/Exerc
+ises_(English)/final_submission/revision/figures/LM_scatterplots-eps-converted-
+to.pdf>
+(epstopdf)                    date: 2025-03-07 15:31:03
+(epstopdf)                    size: 135380 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=D:/5th_
+Semester/Legacy_contamination/Exercises_(English)/final_submission/revision/fig
+ures/LM_scatterplots-eps-converted-to.pdf D:/5th_Semester/Legacy_contamination/
+Exercises_(English)/final_submission/revision/figures/LM_scatterplots.eps>
+(epstopdf)             \includegraphics on input line 144.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file D:/5th_Semester/Legacy_contamination/Exercis
+es_(English)/final_submission/revision/figures/LM_scatterplots-eps-converted-to
+.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
+d
+<D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/revi
+sion/figures/LM_scatterplots-eps-converted-to.pdf, id=50, 903.375pt x 301.125pt
+>
+File: D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission
+/revision/figures/LM_scatterplots-eps-converted-to.pdf Graphic file (type pdf)
+<use D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/
+revision/figures/LM_scatterplots-eps-converted-to.pdf>
+Package pdftex.def Info: D:/5th_Semester/Legacy_contamination/Exercises_(Englis
+h)/final_submission/revision/figures/LM_scatterplots-eps-converted-to.pdf  used
+ on input line 144.
+(pdftex.def)             Requested size: 469.75502pt x 156.58589pt.
+Package epstopdf Info: Source file: <D:/5th_Semester/Legacy_contamination/Exerc
+ises_(English)/final_submission/revision/figures/BR_scatterplots.eps>
+(epstopdf)                    date: 2025-03-07 15:10:21
+(epstopdf)                    size: 101614 bytes
+(epstopdf)             Output file: <D:/5th_Semester/Legacy_contamination/Exerc
+ises_(English)/final_submission/revision/figures/BR_scatterplots-eps-converted-
+to.pdf>
+(epstopdf)                    date: 2025-03-07 15:31:04
+(epstopdf)                    size: 137362 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=D:/5th_
+Semester/Legacy_contamination/Exercises_(English)/final_submission/revision/fig
+ures/BR_scatterplots-eps-converted-to.pdf D:/5th_Semester/Legacy_contamination/
+Exercises_(English)/final_submission/revision/figures/BR_scatterplots.eps>
+(epstopdf)             \includegraphics on input line 151.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file D:/5th_Semester/Legacy_contamination/Exercis
+es_(English)/final_submission/revision/figures/BR_scatterplots-eps-converted-to
+.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
+d
+<D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/revi
+sion/figures/BR_scatterplots-eps-converted-to.pdf, id=51, 903.375pt x 324.21124
+pt>
+File: D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission
+/revision/figures/BR_scatterplots-eps-converted-to.pdf Graphic file (type pdf)
+<use D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/
+revision/figures/BR_scatterplots-eps-converted-to.pdf>
+Package pdftex.def Info: D:/5th_Semester/Legacy_contamination/Exercises_(Englis
+h)/final_submission/revision/figures/BR_scatterplots-eps-converted-to.pdf  used
+ on input line 151.
+(pdftex.def)             Requested size: 469.75502pt x 168.5908pt.
+[6 <D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/r
+evision/figures/R-2_neurons-eps-converted-to.pdf> <D:/5th_Semester/Legacy_conta
+mination/Exercises_(English)/final_submission/revision/figures/LM_scatterplots-
+eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <D:/5th_Semester/Legacy_contamination/Exerc
+ises_(English)/final_submission/revision/figures/parameter_importance.eps>
+(epstopdf)                    date: 2025-03-07 15:12:05
+(epstopdf)                    size: 16574 bytes
+(epstopdf)             Output file: <D:/5th_Semester/Legacy_contamination/Exerc
+ises_(English)/final_submission/revision/figures/parameter_importance-eps-conve
+rted-to.pdf>
+(epstopdf)                    date: 2025-03-07 15:31:06
+(epstopdf)                    size: 11015 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=D:/5th_
+Semester/Legacy_contamination/Exercises_(English)/final_submission/revision/fig
+ures/parameter_importance-eps-converted-to.pdf D:/5th_Semester/Legacy_contamina
+tion/Exercises_(English)/final_submission/revision/figures/parameter_importance
+.eps>
+(epstopdf)             \includegraphics on input line 160.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file D:/5th_Semester/Legacy_contamination/Exercis
+es_(English)/final_submission/revision/figures/parameter_importance-eps-convert
+ed-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> a
+llowed
+<D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/revi
+sion/figures/parameter_importance-eps-converted-to.pdf, id=71, 376.40625pt x 30
+1.125pt>
+File: D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission
+/revision/figures/parameter_importance-eps-converted-to.pdf Graphic file (type 
+pdf)
+<use D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/
+revision/figures/parameter_importance-eps-converted-to.pdf>
+Package pdftex.def Info: D:/5th_Semester/Legacy_contamination/Exercises_(Englis
+h)/final_submission/revision/figures/parameter_importance-eps-converted-to.pdf 
+ used on input line 160.
+(pdftex.def)             Requested size: 281.85587pt x 225.49857pt.
+[7 <D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/r
+evision/figures/BR_scatterplots-eps-converted-to.pdf> <D:/5th_Semester/Legacy_c
+ontamination/Exercises_(English)/final_submission/revision/figures/parameter_im
+portance-eps-converted-to.pdf>]
+Underfull \hbox (badness 5133) in paragraph at lines 189--190
+[]\OT1/cmr/m/n/10 MathWorks (n.d.). tan-sig: Hy-per-bolic tan-gent sig-moid tra
+ns-fer func-tion. Re-trieved from
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
+[]\OT1/cmr/m/n/10 MathWorks (n.d.). logsig: Log-sigmoid trans-fer func-tion. Re
+-trieved from
+ []
+
+[8] (report_legacy_cont.aux) ) 
 Here is how much of TeX's memory you used:
- 15702 strings out of 475385
- 319322 string characters out of 2776907
- 638339 words of memory out of 3000000
- 36818 multiletter control sequences out of 15000+600000
- 475840 words of font info for 51 fonts, out of 8000000 for 9000
+ 15893 strings out of 475385
+ 326765 string characters out of 2776907
+ 637823 words of memory out of 3000000
+ 36990 multiletter control sequences out of 15000+600000
+ 475505 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,8n,89p,611b,669s stack positions out of 10000i,1000n,20000p,200000b,80000s
- <C:\Users\
-Roger\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/U
-sers/Roger/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.
-pfb><C:/Users/Roger/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmbx12.pfb><C:/Users/Roger/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmmi10.pfb><C:/Users/Roger/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmr10.pfb><C:/Users/Roger/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Roger/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Roger/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Roger/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Roger
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Use
-rs/Roger/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pf
-b>
-Output written on report_legacy_cont.pdf (6 pages, 330455 bytes).
+ 84i,8n,89p,1288b,669s stack positions out of 10000i,1000n,20000p,200000b,80000s
+<C:/Users/Roger/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Roger/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Roger/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Roger/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Roge
+r/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Us
+ers/Roger/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pf
+b><C:/Users/Roger/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmr7.pfb><C:/Users/Roger/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb><C:/Users/Roger/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmti10.pfb><C:/Users/Roger/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmti7.pfb><C:/Users/Roger/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on report_legacy_cont.pdf (8 pages, 490240 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
+ 141 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 43 words of extra memory for PDF output out of 10000 (max. 10000000)
 

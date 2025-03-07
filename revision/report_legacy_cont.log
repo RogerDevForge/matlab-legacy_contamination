@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.20)  7 MAR 2025 20:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.20)  7 MAR 2025 21:05
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -891,13 +891,13 @@ h)/final_submission/revision/figures/parameter_importance-eps-converted-to.pdf
 evision/figures/BR_scatterplots-eps-converted-to.pdf> <D:/5th_Semester/Legacy_c
 ontamination/Exercises_(English)/final_submission/revision/figures/parameter_im
 portance-eps-converted-to.pdf>]
-Underfull \hbox (badness 5133) in paragraph at lines 189--190
+Underfull \hbox (badness 5133) in paragraph at lines 185--186
 []\OT1/cmr/m/n/10 MathWorks (n.d.). tan-sig: Hy-per-bolic tan-gent sig-moid tra
 ns-fer func-tion. Re-trieved from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--192
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
 []\OT1/cmr/m/n/10 MathWorks (n.d.). logsig: Log-sigmoid trans-fer func-tion. Re
 -trieved from
  []
@@ -910,7 +910,7 @@ Here is how much of TeX's memory you used:
  36990 multiletter control sequences out of 15000+600000
  475505 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,8n,89p,1288b,669s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 84i,8n,89p,1363b,669s stack positions out of 10000i,1000n,20000p,200000b,80000s
 <C:/Users/Roger/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Roger/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Roger/AppData/Local/P
@@ -924,7 +924,7 @@ nts/cm/cmsy10.pfb><C:/Users/Roger/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/amsfonts/cm/cmti10.pfb><C:/Users/Roger/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/cm/cmti7.pfb><C:/Users/Roger/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on report_legacy_cont.pdf (7 pages, 489680 bytes).
+Output written on report_legacy_cont.pdf (7 pages, 490179 bytes).
 PDF statistics:
  138 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

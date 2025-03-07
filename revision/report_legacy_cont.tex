@@ -23,16 +23,20 @@
 	\maketitle
 	
 	\section{Introduction}
-	Groundwater contamination is a critical issue with significant environmental and public health implications. Accurate prediction of pollutant concentrations is essential for effective remediation and risk management. In this report, we apply the methodology of Taherdangkoo et al. \cite{taherdangkoo2020} by adapting advanced neural network training algorithms—Levenberg-Marquardt (LM) and Bayesian Regularization (BR)—to a simplified 2D contamination model. Our approach simulates contaminant migration in a shallow groundwater aquifer and compares the performance of both algorithms while evaluating the influence of key hydrogeological parameters. This exercise demonstrates the potential of data-driven methods for assessing groundwater contamination and highlights the value of simplified models in environmental risk assessment.
+	Groundwater contamination is a critical issue with significant environmental and public health implications. Accurate prediction of pollutant concentrations is essential for effective remediation and risk management. In this report, we apply the methodology of Taherdangkoo et al. \cite{taherdangkoo2020} by adapting advanced neural network training algorithms—Levenberg–Marquardt (LM) and Bayesian Regularization (BR).
+
+	The Levenberg–Marquardt algorithm, introduced by Hagan and Menhaj (1994), is recognized for its computational efficiency and rapid convergence when training feedforward neural networks. MATLAB implements this algorithm in the \texttt{trainlm} function, which has become one of the most widely used tools for training neural networks due to its reliability and speed \cite{hagan1994,matlab}.
+
+	The Bayesian Regularization algorithm, detailed by Foresee and Hagan (1997) \cite{foresee1997,matlab}, enhances model generalization through a Bayesian probabilistic framework. Its implementation in MATLAB as the \texttt{trainbr} function integrates the training and validation phases, providing an optimal solution for limited datasets common in groundwater contamination scenarios. This method reduces the risk of overfitting by automatically adjusting regularization parameters during training, effectively improving predictive accuracy and robustness.
+
+	Our approach simulates contaminant migration in a shallow groundwater aquifer and compares the performance of both algorithms while evaluating the influence of key hydrogeological parameters using MATLAB.
 	
 	\section{Methodology}
 	\subsection{Conceptual Model and Boundary Conditions}
 	The 2D generic contamination model domain spans 150 m in length and 100 m in width, and is set to be located at a depth of 30 m (depth being just relevant to make clear that it represents a shallow aquifer). Two leakage sources are positioned along the left boundary, while an observation well is placed on the right side of the domain. The key input parameters for the simplified model are permeability, \textit{porosity}, and \textit{layer length}, while the output is the contaminant concentration.
 	
 	Groundwater flows from left to right under single-phase flow conditions, with the contaminant treated as a conservative tracer (i.e., sorption and degradation processes are neglected). Pressure head boundaries are applied laterally, and no-flow conditions are enforced at the top and bottom boundaries. All strata are assumed to be homogeneous and isotropic.
-	The contaminant is allowed to leak into the aquifer over a simulation period of 150 hours.
-	
-	\textit{Figure \ref{fig:contamination_model}} presents a detailed diagram of the proposed model.
+	The contaminant is allowed to leak into the aquifer over a simulation period of 150 hours. \textit{Figure \ref{fig:contamination_model}} presents a detailed diagram of the proposed model.
 	
 	\begin{figure}[h]
 		\centering
@@ -71,21 +75,22 @@
 	\end{figure}
 	
 	\subsection{Neural Network Structures and Training Algorithms}
-	A feedforward neural network with one hidden layer is employed to predict pollutant concentrations. The study investigates networks with the number of hidden neurons varying from 1 to 40. Key aspects of the network setup include:
+	
+	A feedforward neural network with one hidden layer is employed to predict pollutant concentrations in shallow aquifers. Similar neural network structures have been applied in recent groundwater contamination studies by Sandra M. Guzman et. al. (2017) \cite{guzman2017}. and Taherdangkoo et. al. (2020) \cite{taherdangkoo2020}.
+	
 	\begin{itemize}
-		\item \textbf{Data Normalization and Division:} Input and target data are normalized to the range \([-1, 1]\) with the \textit{mapminmax} function, since the used training algorithms perform better with data centered at zero \cite{guzman2017,taherdangkoo2020}. This process ensures all features contribute equally during network training and the normalization parameters (the original minimum and maximum values) are stored for later use in reversing the transformation on the network's predictions.
-		The dataset is split into training (70\%), validation (15\%), and testing (15\%) sets.
-		\item \textbf{Network Architecture:} The hidden layer uses a hyperbolic tangent sigmoid (\textit{tansig}) transfer function (chosen over the default \textit{logsig} because of the \([-1, 1]\) range of the data after the normalization), while the output layer uses a linear (\textit{purelin}) function.
-		\item \textbf{Training Algorithms:} 
-		\begin{enumerate}
-			\item \textbf{Levenberg-Marquardt (LM):} The LM algorithm is used with the network configured to use a validation set to avoid overfitting. This algorithm is favored for its fast convergence and efficiency \cite{taherdangkoo2020}.
-			\item \textbf{Bayesian Regularization (BR):} The BR algorithm is applied combining the training and validation sets to enhance generalization. This is particularly advantageous when working with small datasets like ours, because BR minimizes the need for a separate validation phase and enhances the model’s generalization ability \cite{taherdangkoo2020}.
-		\end{enumerate}
+		\item \textit{Data Normalization:} Input and target data are normalized to the range  using the \textit{mapminmax} function, since training algorithms typically perform better with data centered at zero \cite{guzman2017,taherdangkoo2020}.
 		
+		\item \textit{Network Architecture:} The hidden layer uses a hyperbolic tangent sigmoid (\textit{tansig}) \cite{matlab-tansig} transfer function, chosen over the default \textit{logsig} \cite{matlab-logsig} due to the normalized data range of \([-1, 1]\). The output layer applies a linear transfer function to facilitate continuous-value prediction.
 		
-		\item \textbf{Performance Metrics:} The networks are evaluated using the mean squared error (MSE) computed on training, validation, and testing datasets. Regression plots are generated to assess prediction accuracy, and a parameter importance analysis is conducted to determine the influence of input parameters (\textit{permeability}, \textit{porosity}, and \textit{layer length}) on model performance. 
+		\item \textit{Training Algorithms:} As explained earlier, the two algorithms used are the LM and the BR. LM algorithm is favored in the field, for fast convergence and efficiency, particularly in scenarios requiring rapid training and reliable predictions \cite{taherdangkoo2020}.
 		
-		The idea behind the parameter performance analysis is to measure how much each input contributes to the network’s performance. In the code, this is done by excluding one input at a time and then retraining the best selected network without that parameter. For each exclusion, the mean squared error (MSE) is computed on both the training and testing sets. These errors capture how much the network's performance degrades when that parameter is missing, they are averaged for all the parameters (each divided by the sum of all average impacts) to yield a relative importance metric (adding up to 1).
+		And regarding BR, which often integrates training and validation sets, enhancing generalization \cite{guzman2017,taherdangkoo2020,foresee1997}, we still separated the validation set. The reason was to ensure that both algorithms were evaluated under the same conditions. The validation partition is effectively inert for stopping in the BR case, but it still allows us to compute an even validation error metric for both algorithms.
+		
+		\item \textit{Performance Evaluation:} Model performance is assessed via performance metrics. The MSE, RMSE and $R^{2}$ are computed separately on the training, validation and test sets, per every number of neurons defining every model. The model yielding the lowest validation MSE is identified as the best model for each algorithm.
+		
+		\item \textit{Parameter Importance Analysis:} To quantify how input variables (\textit{permeability}, \textit{porosity}, and \textit{layer length}) influence prediction accuracy, the method Leave-One-Variable-Out (LOVO) is employed in a simplified way, from Olden et. al. (2004) \cite{olden2004}. The degradation in network performance upon omission of each input parameter is quantified, yielding a relative importance metric.
+		
 	\end{itemize}
 	
 	\section{Results and Discussion}
@@ -128,8 +133,20 @@
 	\bibliographystyle{apalike}
 	
 	\begin{thebibliography}{99} % 99 is the widest label (adjust as needed)
+		\bibitem{foresee1997}
+		Foresee, F. D., \& Hagan, M. T. (1997). Gauss–Newton approximation to Bayesian learning. In Proceedings of International Conference on Neural Networks (ICNN’97) (Vol. 3, pp. 1930–1935). IEEE. https://doi.org/10.1109/ICNN.1997.614194
 		\bibitem{guzman2017}
 		Guzman, Sandra M.; Paz, Joel O.; Tagert, Mary Love M. (2017): The Use of NARX Neural Networks to Forecast Daily Groundwater Levels. In Water Resour Manage 31 (5), pp. 1591–1603. DOI: 10.1007/s11269-017-1598-5.
+		\bibitem{hagan1994}
+		Hagan, M. T., \& Menhaj, M. B. (1994). Training feedforward networks with the Marquardt algorithm. IEEE Transactions on Neural Networks, 5(6), 989–993. https://doi.org/10.1109/72.329697
+		\bibitem{matlab}
+		MathWorks. (n.d.). Choose a multilayer neural network training function. MATLAB Documentation. Retrieved March 7, 2025, from https://www.mathworks.com/help/deeplearning/ug/choose-a-multilayer-neural-network-training-function.html
+		\bibitem{matlab-tansig}
+		MathWorks (n.d.). tansig: Hyperbolic tangent sigmoid transfer function. Retrieved from https://de.mathworks.com/help/deeplearning/ref/tansig.html.
+		\bibitem{matlab-logsig}
+		MathWorks (n.d.). logsig: Log-sigmoid transfer function. Retrieved from https://de.mathworks.com/help/deeplearning/ref/logsig.html.
+		\bibitem{olden2004}
+		Olden, J. D., Joy, M. K., \& Death, R. G. (2004). An accurate comparison of methods for quantifying variable importance in artificial neural networks using simulated data. Ecological Modelling, 178(3–4), 389–397.
 		\bibitem{taherdangkoo2020}
 		Taherdangkoo, R., Tatomir, A., Taherdangkoo, M., Qiu, P., \& Sauter, M. (2020). Nonlinear autoregressive neural networks to predict hydraulic fracturing fluid leakage into shallow groundwater. Water, 12(3), 841. https://doi.org/10.3390/w12030841
 	\end{thebibliography}

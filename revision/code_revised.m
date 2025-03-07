@@ -144,7 +144,7 @@ for i = neurons
     mse_test_br(i) = mean((yTest_br - t(:,indTest)).^2);
     mse_val_br(i) = mean((yVal_br - t(:,indVal)).^2);
 
-    % Update best BR network if necessary - FIXED: Use consistent criteria
+    % Update best BR network
     if mse_val_br(i) < best_mse_br
         best_mse_br = mse_val_br(i);
         best_net_br = net_br;
@@ -157,7 +157,7 @@ for i = neurons
     nTrainCols = size(xTrain,2);
     nValCols   = size(xVal,2);
 
-    % 1) Compute RMSE from MSE
+    % Compute RMSE from MSE
     rmse_train_lm(i) = sqrt(mse_train_lm(i));
     rmse_val_lm(i)   = sqrt(mse_val_lm(i));
     rmse_test_lm(i)  = sqrt(mse_test_lm(i));
@@ -166,7 +166,7 @@ for i = neurons
     rmse_test_br(i)  = sqrt(mse_test_br(i));
     rmse_val_br(i)   = sqrt(mse_val_br(i));
 
-    % 2) Compute R² for LM
+    % Compute R² for LM
     y_true_train_lm = t(:, indTrain);
     ss_res_lm_train = sum((yTrain_lm - y_true_train_lm).^2);
     ss_tot_lm_train = sum((y_true_train_lm - mean(y_true_train_lm)).^2);
@@ -182,7 +182,7 @@ for i = neurons
     ss_tot_lm_test = sum((y_true_test_lm - mean(y_true_test_lm)).^2);
     r2_test_lm(i)  = 1 - (ss_res_lm_test / ss_tot_lm_test);
     
-    % 3) Compute R² for BR 
+    % Compute R² for BR 
     y_true_train_br = t(:, indTrain);
     ss_res_br_train = sum((yTrain_br - y_true_train_br).^2);
     ss_tot_br_train = sum((y_true_train_br - mean(y_true_train_br)).^2);
@@ -344,7 +344,7 @@ for paramIdx = 1:size(x, 1)
                                         mean((yTestExcl - t(:,indTest)).^2)];
 end
 
-% ============== Plot R^2 Comparison ==============
+% Plot R^2 Comparison 
 figure('Position', [100 100 800 500]);
 plot(neurons, r2_train_lm, '--r', 'LineWidth', 1.5); hold on;
 plot(neurons, r2_val_lm,   ':r',  'LineWidth', 1.5);
@@ -368,7 +368,7 @@ grid on;
 % Set y-axis limits to reasonable values for R^2
 ylim([-1 1]);
 
-% ============== Plot RMSE Comparison ==============
+% Plot RMSE Comparison 
 figure('Position', [100 100 800 500]);
 plot(neurons, rmse_train_lm, '--r', 'LineWidth', 1.5); hold on;
 plot(neurons, rmse_val_lm,   ':r',  'LineWidth', 1.5);

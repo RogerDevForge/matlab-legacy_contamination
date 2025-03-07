@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.20)  7 MAR 2025 20:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.20)  7 MAR 2025 20:31
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -717,12 +717,7 @@ revision/figures/MSE_neurons-eps-converted-to.pdf>
 Package pdftex.def Info: D:/5th_Semester/Legacy_contamination/Exercises_(Englis
 h)/final_submission/revision/figures/MSE_neurons-eps-converted-to.pdf  used on 
 input line 121.
-(pdftex.def)             Requested size: 493.2442pt x 330.15636pt.
-
-Overfull \hbox (23.48918pt too wide) in paragraph at lines 121--122
- [][] 
- []
-
+(pdftex.def)             Requested size: 375.80544pt x 251.55013pt.
 [3]
 Package epstopdf Info: Source file: <D:/5th_Semester/Legacy_contamination/Exerc
 ises_(English)/final_submission/revision/figures/RMSE_neurons.eps>
@@ -754,14 +749,7 @@ revision/figures/RMSE_neurons-eps-converted-to.pdf>
 Package pdftex.def Info: D:/5th_Semester/Legacy_contamination/Exercises_(Englis
 h)/final_submission/revision/figures/RMSE_neurons-eps-converted-to.pdf  used on
  input line 128.
-(pdftex.def)             Requested size: 493.2442pt x 330.15636pt.
-
-Overfull \hbox (23.48918pt too wide) in paragraph at lines 128--129
- [][] 
- []
-
-[4 <D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/r
-evision/figures/MSE_neurons-eps-converted-to.pdf>]
+(pdftex.def)             Requested size: 375.80544pt x 251.55013pt.
 Package epstopdf Info: Source file: <D:/5th_Semester/Legacy_contamination/Exerc
 ises_(English)/final_submission/revision/figures/R-2_neurons.eps>
 (epstopdf)                    date: 2025-03-07 15:12:30
@@ -783,7 +771,7 @@ pdfTeX warning: pdflatex.exe (file D:/5th_Semester/Legacy_contamination/Exercis
 es_(English)/final_submission/revision/figures/R-2_neurons-eps-converted-to.pdf
 ): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 <D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/revi
-sion/figures/R-2_neurons-eps-converted-to.pdf, id=38, 625.33624pt x 414.54875pt
+sion/figures/R-2_neurons-eps-converted-to.pdf, id=27, 625.33624pt x 414.54875pt
 >
 File: D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission
 /revision/figures/R-2_neurons-eps-converted-to.pdf Graphic file (type pdf)
@@ -792,14 +780,11 @@ revision/figures/R-2_neurons-eps-converted-to.pdf>
 Package pdftex.def Info: D:/5th_Semester/Legacy_contamination/Exercises_(Englis
 h)/final_submission/revision/figures/R-2_neurons-eps-converted-to.pdf  used on 
 input line 135.
-(pdftex.def)             Requested size: 493.2442pt x 326.9902pt.
-
-Overfull \hbox (23.48918pt too wide) in paragraph at lines 135--136
- [][] 
- []
-
-[5 <D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/r
-evision/figures/RMSE_neurons-eps-converted-to.pdf>]
+(pdftex.def)             Requested size: 375.80544pt x 249.13599pt.
+[4 <D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/r
+evision/figures/MSE_neurons-eps-converted-to.pdf> <D:/5th_Semester/Legacy_conta
+mination/Exercises_(English)/final_submission/revision/figures/RMSE_neurons-eps
+-converted-to.pdf>]
 Package epstopdf Info: Source file: <D:/5th_Semester/Legacy_contamination/Exerc
 ises_(English)/final_submission/revision/figures/LM_scatterplots.eps>
 (epstopdf)                    date: 2025-03-07 15:11:09
@@ -822,7 +807,7 @@ es_(English)/final_submission/revision/figures/LM_scatterplots-eps-converted-to
 .pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
 d
 <D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/revi
-sion/figures/LM_scatterplots-eps-converted-to.pdf, id=50, 903.375pt x 301.125pt
+sion/figures/LM_scatterplots-eps-converted-to.pdf, id=47, 903.375pt x 301.125pt
 >
 File: D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission
 /revision/figures/LM_scatterplots-eps-converted-to.pdf Graphic file (type pdf)
@@ -854,7 +839,7 @@ es_(English)/final_submission/revision/figures/BR_scatterplots-eps-converted-to
 .pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
 d
 <D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/revi
-sion/figures/BR_scatterplots-eps-converted-to.pdf, id=51, 903.375pt x 324.21124
+sion/figures/BR_scatterplots-eps-converted-to.pdf, id=48, 903.375pt x 324.21124
 pt>
 File: D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission
 /revision/figures/BR_scatterplots-eps-converted-to.pdf Graphic file (type pdf)
@@ -864,7 +849,7 @@ Package pdftex.def Info: D:/5th_Semester/Legacy_contamination/Exercises_(Englis
 h)/final_submission/revision/figures/BR_scatterplots-eps-converted-to.pdf  used
  on input line 151.
 (pdftex.def)             Requested size: 469.75502pt x 168.5908pt.
-[6 <D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/r
+[5 <D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/r
 evision/figures/R-2_neurons-eps-converted-to.pdf> <D:/5th_Semester/Legacy_conta
 mination/Exercises_(English)/final_submission/revision/figures/LM_scatterplots-
 eps-converted-to.pdf>]
@@ -891,7 +876,7 @@ es_(English)/final_submission/revision/figures/parameter_importance-eps-convert
 ed-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> a
 llowed
 <D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/revi
-sion/figures/parameter_importance-eps-converted-to.pdf, id=71, 376.40625pt x 30
+sion/figures/parameter_importance-eps-converted-to.pdf, id=68, 376.40625pt x 30
 1.125pt>
 File: D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission
 /revision/figures/parameter_importance-eps-converted-to.pdf Graphic file (type 
@@ -902,7 +887,7 @@ Package pdftex.def Info: D:/5th_Semester/Legacy_contamination/Exercises_(Englis
 h)/final_submission/revision/figures/parameter_importance-eps-converted-to.pdf 
  used on input line 160.
 (pdftex.def)             Requested size: 281.85587pt x 225.49857pt.
-[7 <D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/r
+[6 <D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/r
 evision/figures/BR_scatterplots-eps-converted-to.pdf> <D:/5th_Semester/Legacy_c
 ontamination/Exercises_(English)/final_submission/revision/figures/parameter_im
 portance-eps-converted-to.pdf>]
@@ -917,7 +902,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 191--192
 -trieved from
  []
 
-[8] (report_legacy_cont.aux) ) 
+[7] (report_legacy_cont.aux) ) 
 Here is how much of TeX's memory you used:
  15893 strings out of 475385
  326765 string characters out of 2776907
@@ -939,9 +924,9 @@ nts/cm/cmsy10.pfb><C:/Users/Roger/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/amsfonts/cm/cmti10.pfb><C:/Users/Roger/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/cm/cmti7.pfb><C:/Users/Roger/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on report_legacy_cont.pdf (8 pages, 490240 bytes).
+Output written on report_legacy_cont.pdf (7 pages, 489680 bytes).
 PDF statistics:
- 141 PDF objects out of 1000 (max. 8388607)
+ 138 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  43 words of extra memory for PDF output out of 10000 (max. 10000000)
 

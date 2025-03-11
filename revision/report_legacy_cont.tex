@@ -1,7 +1,7 @@
 \documentclass[10pt]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
-\graphicspath{{D:/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/revision/figures}}
+\graphicspath{{D:/MASTER/5th_Semester/Legacy_contamination/Exercises_(English)/final_submission/revision/figures}}
 \usepackage{subcaption}
 \usepackage{amsmath}
 \usepackage{float}
@@ -34,7 +34,7 @@
 	
 	\section{Methodology}
 	\subsection{Conceptual Model and Boundary Conditions}
-	The 2D generic contamination model domain spans 150 m in length and 100 m in width, and is set to be located at a depth of 30 m (depth being just relevant to make clear that it represents a shallow aquifer). Two leakage sources are positioned along the left boundary, while an observation well is placed on the right side of the domain. The key input parameters for the simplified model are permeability, \textit{porosity}, and \textit{layer length}, while the output is the contaminant concentration.
+	The 2D generic contamination model domain spans 150 m in length and 100 m in width, and is set to be located at a depth of 30 m (depth being just relevant to make clear that it represents a shallow aquifer). Two leakage sources are positioned along the left boundary, while an observation well is placed on the right side of the domain. The key input parameters for the simplified model are \textit{permeability}, \textit{porosity}, and \textit{layer length}, while the output is the contaminant concentration.
 	
 	Groundwater flows from left to right under single-phase flow conditions, with the contaminant treated as a conservative tracer (i.e., sorption and degradation processes are neglected). Pressure head boundaries are applied laterally, and no-flow conditions are enforced at the top and bottom boundaries. All strata are assumed to be homogeneous and isotropic.
 	The contaminant is allowed to leak into the aquifer over a simulation period of 150 hours. \textit{Figure \ref{fig:contamination_model}} presents a detailed diagram of the proposed model.
@@ -104,17 +104,17 @@
 		
 		\underline{\textit{Parameter Importance Analysis}} \\
 		\\
-		The Leave-One-Variable-Out (LOVO) method is executed in the code by systematically removing each input variable (\textit{permeability}, \textit{porosity}, and \textit{layer length}) and retraining the best FFNN (previously selected depending on the validation MSE, as explained earlier) without that specific parameter. The method is simplified from J. D. Olden et. al. (2004) \cite{olden2004}. The performance degradation is quantified by computing the mean squared error (MSE) for training and testing datasets. The impact of each parameter is measured by averaging these MSE differences and normalizing them to derive a relative importance metric. Finally, a bar chart is generated to visualize the normalized contribution of each parameter, aiding in the interpretation of their influence on the model's predictions. Validation MSE is not included in this step, as it is primarily used for model selection rather than importance quantification. Including it could introduce bias, since the validation set is already involved in tuning the best FFNN, potentially leading to an overestimation or underestimation of parameter importance due to prior model adjustments. Instead, focusing on training and testing MSE ensures that parameter influence is assessed based on both model fit and generalization performance.
+		The Leave-One-Variable-Out (LOVO) method is executed in the code by systematically removing each input variable (\textit{permeability}, \textit{porosity}, and \textit{layer length}) and retraining the best FFNN (previously selected depending on the validation MSE, as explained earlier) without that specific parameter. The method is simplified from J. D. Olden et. al. (2004) \cite{olden2004}. The performance degradation is quantified by computing the mean squared error (MSE) for training and testing datasets. The impact of each parameter is measured by averaging these MSE differences and normalizing them to derive a relative importance metric. Finally, a bar chart is generated to visualize the normalized contribution of each parameter, aiding in the interpretation of their influence on the model's predictions. Validation MSE is not included in this step, as it is primarily used for model selection rather than importance quantification. Including it could introduce bias, since the validation set is already involved in tuning the best FFNN, potentially leading to an overestimation or underestimation of parameter importance due to prior model adjustments. 
 	
 	\section{Results and Discussion}
 	
-	Both the Levenberg-Marquardt (LM) and Bayesian Regularization (BR) algorithms demonstrated strong predictive capabilities when trained on normalized data. The LM network achieved its best performance using 30 neurons (Training MSE: \(8.77 \times 10^3\), Validation MSE: \(4.42 \times 10^4\), Testing MSE: \(1.04 \times 10^5\)), while the BR network performed optimally with 13 neurons (Training MSE: \(2.45 \times 10^4\), Validation MSE: \(4.23 \times 10^4\), Testing MSE: \(4.57 \times 10^4\)). These results indicate that the BR network generally outperformed the LM network, particularly in terms of validation and testing errors.
+	Both FFNN-LM and FFNN-BR demonstrated strong predictive capabilities when trained on normalized data. The FFNN-LM achieved its best performance using 30 neurons (Training MSE: \(8.77 \times 10^3\), Validation MSE: \(4.42 \times 10^4\), Testing MSE: \(1.04 \times 10^5\)), while the FFNN-BR performed optimally with 13 neurons (Training MSE: \(2.45 \times 10^4\), Validation MSE: \(4.23 \times 10^4\), Testing MSE: \(4.57 \times 10^4\)). These results indicate that the FFNN-BR generally outperformed the FFNN-LM, particularly in terms of testing error and number of neurons.
 	
 	To provide a more comprehensive assessment of predictive performance, additional evaluation metrics, including Root Mean Squared Error (RMSE) and the coefficient of determination ($R^2$), were computed.
 	
-	\textit{Figure \ref{fig:comparisonMSE}} presents the performance comparison between the FFNN-LM and FFNN-BR algorithms in terms of MSE as a function of the number of neurons. The results indicate that while LM achieves lower training error, the BR network exhibits superior generalization capabilities. FFNN-LM obtains the highest peaks of MSE, especially for the testing dataset.
+	\textit{Figure \ref{fig:comparisonMSE}} presents the performance comparison between the FFNN-LM and FFNN-BR algorithms in terms of MSE as a function of the number of neurons. The results indicate that while LM achieves lower training error, the BR network exhibits superior generalization capabilities. In this graph, FFNN-LM obtains the highest peaks of MSE, especially for the testing dataset.
 	
-	\textit{Figure \ref{fig:comparisonRMSE}} and \textit{Figure \ref{fig:comparisonR2}} illustrate similar trends for RMSE and $R^2$ metrics. The RMSE comparison reveals that the BR network maintains lower error values across all tested neuron configurations. Likewise, \textit{Figure \ref{fig:comparisonR2}} confirms that the BR network achieves higher $R^2$ values, signifying a stronger correlation between predicted and actual pollutant concentrations. These graphs also support the selection criteria for the optimal model based on validation error. While alternative FFNN configurations, particularly LM with a lower number of neurons, could have been considered, our final choice remains justified, especially when evaluating the validation curve.
+	\textit{Figure \ref{fig:comparisonRMSE}} and \textit{Figure \ref{fig:comparisonR2}} illustrate similar trends for RMSE and $R^2$ metrics. The RMSE comparison reveals that the BR network maintains lower error values across all tested neuron configurations, better than \textit{Figure \ref{fig:comparisonMSE}}. Likewise, \textit{Figure \ref{fig:comparisonR2}} confirms that the BR network achieves higher $R^2$ values, signifying a stronger correlation between predicted and actual pollutant concentrations, also making the trends clearer than \textit{Figure \ref{fig:comparisonMSE}}. These graphs also support the selection criteria for the optimal model based on validation error. While alternative FFNN configurations, particularly LM with a lower number of neurons, could have been considered, our final choice remains justified, especially when evaluating the validation functions.
 	
 	\begin{figure}[H]
 		\centering
@@ -132,23 +132,23 @@
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.8\textwidth]{R-2\_neurons.eps}
+		\includegraphics[width=0.8\textwidth]{R-2_neurons.eps}
 		\caption{\textit{Algorithm Performance Comparison: \(R^2\) vs. number of neurons for the FFNN-LM and FFNN-BR. Circular markers indicate the best-performing networks for each algorithm, pointing on the validation dataset line.}}
 		\label{fig:comparisonR2}
 	\end{figure}
 	
-	The regression analyses for the FFNN-LM and FFNN-BR, depicted in \textit{Figure \ref{fig:lm_sct}} and \textit{Figure \ref{fig:br_sct}}, respectively, provide further insights into model performance. For the FFNN-LM (\textit{Figure \ref{fig:lm_sct}}), scatter plots of true versus predicted values indicate a strong correlation along the 45-degree line, though larger discrepancies appear in the validation and testing datasets. Similarly, \textit{Figure \ref{fig:br_sct}} shows that the BR network exhibits better agreement between predicted and actual pollutant concentrations, confirming its superior predictive accuracy. The FFNN-LM also suffers more regarding extreme values, this is best observed from the 2000 line onwards,  in both axis, where 9 outliers are identified in the testing dataset (with its particular importance, since it doesn't train the FFNNs).
+	The regression analyses for the FFNN-LM and FFNN-BR, depicted in \textit{Figure \ref{fig:lm_sct}} and \textit{Figure \ref{fig:br_sct}}, respectively, provide further insights into model performance. For the FFNN-LM (\textit{Figure \ref{fig:lm_sct}}), scatter plots of true versus predicted values indicate a strong correlation along the 45-degree line, though larger discrepancies appear in the validation and testing datasets. Similarly, \textit{Figure \ref{fig:br_sct}} shows that the BR network exhibits better agreement between predicted and actual pollutant concentrations, confirming its superior predictive accuracy. The FFNN-LM also performs worse regarding extreme values, this is best observed from the 2000 line onwards, in both axis, where 9 outliers are identified in the testing dataset (with its particular importance, since it doesn't train the FFNNs).
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=1\textwidth]{LM\_scatterplots.eps}
+		\includegraphics[width=1\textwidth]{LM_scatterplots.eps}
 		\caption{\textit{LM Network Regression Analysis: Scatter plots for (a) training, (b) validation, and (c) testing datasets with corresponding MSE values.}}
 		\label{fig:lm_sct}
 	\end{figure}
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=1\textwidth]{BR\_scatterplots.eps}
+		\includegraphics[width=1\textwidth]{BR_scatterplots.eps}
 		\caption{\textit{BR Network Regression Analysis: Scatter plots for (a) training, (b) validation, and (c) testing datasets with corresponding MSE values.}}
 		\label{fig:br_sct}
 	\end{figure}
@@ -157,7 +157,7 @@
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.6\textwidth]{parameter\_importance.eps}
+		\includegraphics[width=0.6\textwidth]{parameter_importance.eps}
 		\caption{\textit{Parameter Importance Analysis: Normalized importance of input parameters obtained by evaluating the impact of each parameter's exclusion on network performance.}}
 		\label{fig:param_imp}
 	\end{figure}
@@ -165,7 +165,7 @@
 	\section{Conclusion}
 	This study has demonstrated the application of data-driven neural network approaches for the prediction of pollution concentrations in a shallow groundwater aquifer. A two-dimensional contamination model was employed to simulate pollutant transport under realistic boundary conditions. Neural networks with varying numbers of hidden neurons were trained using both Levenberg-Marquardt and Bayesian Regularization algorithms.
 	
-	Both LM and BR networks provided accurate predictions, but the results clearly indicate that the BR algorithm is the superior choice for this application in all ambits (less number of neurons, and less MSE, RMSE and higher $R^2$). The LM network’s performance was optimized by monitoring validation MSE, while the BR network benefited from an automatic regularization mechanism, enhancing its generalization ability.
+	Both LM and BR networks provided accurate predictions, but the results clearly indicate that the BR algorithm is the superior choice for this application in all ambits (less number of neurons, and less MSE, RMSE and higher $R^2$ across testing datasets). The FFNN-LM performance was optimized by monitoring validation MSE, while the BR network benefited from an automatic regularization mechanism, enhancing its generalization ability.
 	
 	The parameter importance analysis confirmed that \textit{porosity} is the most significant predictor of pollution spread, while \textit{permeability} and \textit{layer length} also play important roles. These findings provide valuable insights into groundwater contamination modelling and suggest that BR-based feedforward neural networks are well-suited for predictive environmental analysis.
 	
